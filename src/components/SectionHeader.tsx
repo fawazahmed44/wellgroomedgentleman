@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'motion/react';
 
 interface SectionHeaderProps {
   number?: string;
@@ -22,7 +23,13 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   const isCenter = align === 'center';
 
   return (
-    <div className={`mb-12 md:mb-16 ${isCenter ? 'text-center max-w-3xl mx-auto' : 'max-w-3xl'} ${className}`}>
+    <motion.div
+      initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+      className={`mb-12 md:mb-16 ${isCenter ? 'text-center max-w-3xl mx-auto' : 'max-w-3xl'} ${className}`}
+    >
       {/* Editorial Motif: Number & Badge with hairline */}
       <div className={`flex items-center gap-3 mb-4 ${isCenter ? 'justify-center' : 'justify-start'}`}>
         {number && (
@@ -56,6 +63,6 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
           {description}
         </p>
       )}
-    </div>
+    </motion.div>
   );
 };

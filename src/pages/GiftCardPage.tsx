@@ -1,15 +1,16 @@
 import React from 'react';
 import { businessInfo } from '../data/siteData';
 import { SectionHeader } from '../components/SectionHeader';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { Gift, ExternalLink, Shield, Sparkles, Check, Phone, MapPin, ArrowRight } from 'lucide-react';
 import { Link } from '../context/RouterContext';
 
 export const GiftCardPage: React.FC = () => {
   return (
-    <div className="bg-[#141312] text-[#EDE7DC] pt-32 pb-24">
+    <div className="bg-[#141312] text-[#EDE7DC] pt-24 md:pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Page Hero */}
-        <div className="max-w-4xl mb-16">
+        <ScrollReveal className="max-w-4xl mb-16">
           <div className="inline-flex items-center gap-3 px-3.5 py-1 mb-6 border border-[#CCA300]/40 bg-[#1A1817]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCA300]" />
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold">
@@ -22,12 +23,12 @@ export const GiftCardPage: React.FC = () => {
           <p className="text-lg md:text-xl text-[#B8B0A2] leading-relaxed font-light">
             Give the experience of timeless barbering, hot lather shaves, and comprehensive men’s spa care on Coral Gables’ Miracle Mile.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Gift Card Showcase Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
           {/* Card Mockup Visual */}
-          <div className="lg:col-span-6">
+          <ScrollReveal delay={0.05} className="lg:col-span-6">
             <div className="relative aspect-[1.586/1] max-w-lg mx-auto bg-gradient-to-br from-[#24201D] via-[#1B1817] to-[#121110] border border-[#CCA300]/50 p-8 sm:p-10 flex flex-col justify-between shadow-2xl shadow-black/80">
               {/* Card Header */}
               <div className="flex items-start justify-between">
@@ -72,10 +73,10 @@ export const GiftCardPage: React.FC = () => {
                 </span>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Details & CTA side */}
-          <div className="lg:col-span-6 space-y-6">
+          <ScrollReveal delay={0.15} className="lg:col-span-6 space-y-6">
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold block">
               Digital & Physical Gift Cards
             </span>
@@ -125,11 +126,11 @@ export const GiftCardPage: React.FC = () => {
                 <span>Call For Physical Card</span>
               </a>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Popular Service Recommendations For Gift Cards */}
-        <div className="border-t border-[#26221F] pt-16">
+        <ScrollReveal className="border-t border-[#26221F] pt-16">
           <SectionHeader
             number="01"
             badge="Inspiration"
@@ -172,7 +173,7 @@ export const GiftCardPage: React.FC = () => {
               </p>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

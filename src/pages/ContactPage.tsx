@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from '../context/RouterContext';
 import { businessInfo } from '../data/siteData';
 import { SectionHeader } from '../components/SectionHeader';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { MapPin, Phone, Mail, Clock, Calendar, ArrowUpRight, CheckCircle2, MessageSquare, Send } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
@@ -21,10 +22,10 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#141312] text-[#EDE7DC] pt-32 pb-24">
+    <div className="bg-[#141312] text-[#EDE7DC] pt-24 md:pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Page Hero */}
-        <div className="max-w-4xl mb-16">
+        <ScrollReveal className="max-w-4xl mb-16">
           <div className="inline-flex items-center gap-3 px-3.5 py-1 mb-6 border border-[#CCA300]/40 bg-[#1A1817]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCA300]" />
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold">
@@ -37,12 +38,12 @@ export const ContactPage: React.FC = () => {
           <p className="text-lg md:text-xl text-[#B8B0A2] leading-relaxed font-light">
             We invite you to visit our barbershop and gentlemen’s spa located on Coral Gables’ historic Miracle Mile. Walk-ins are welcomed, appointments are recommended.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Contact Information & Hours Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
           {/* Contact Details Card */}
-          <div className="lg:col-span-5 space-y-8">
+          <ScrollReveal delay={0.1} className="lg:col-span-5 space-y-8">
             <div className="bg-[#181615] border border-[#2A2623] p-8 space-y-6">
               <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold block">
                 Flagship Details
@@ -163,10 +164,10 @@ export const ContactPage: React.FC = () => {
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Contact Inquiry Form */}
-          <div className="lg:col-span-7 bg-[#181615] border border-[#2A2623] p-8 md:p-10">
+          <ScrollReveal delay={0.2} className="lg:col-span-7 bg-[#181615] border border-[#2A2623] p-8 md:p-10">
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold block mb-2">
               Direct Message
             </span>
@@ -277,11 +278,11 @@ export const ContactPage: React.FC = () => {
                 </button>
               </form>
             )}
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Map / Directions Display */}
-        <div className="border border-[#2A2623] bg-[#181615] p-6 sm:p-8">
+        <ScrollReveal className="border border-[#2A2623] bg-[#181615] p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
             <div>
               <span className="text-[10px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold block mb-1">
@@ -311,7 +312,7 @@ export const ContactPage: React.FC = () => {
               loading="lazy"
             />
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

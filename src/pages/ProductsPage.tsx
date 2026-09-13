@@ -2,14 +2,15 @@ import React from 'react';
 import { Link } from '../context/RouterContext';
 import { productBrands, businessInfo } from '../data/siteData';
 import { SectionHeader } from '../components/SectionHeader';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { Check, MapPin, Phone, Sparkles, ArrowRight, ShoppingBag } from 'lucide-react';
 
 export const ProductsPage: React.FC = () => {
   return (
-    <div className="bg-[#141312] text-[#EDE7DC] pt-32 pb-24">
+    <div className="bg-[#141312] text-[#EDE7DC] pt-24 md:pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Page Hero */}
-        <div className="max-w-4xl mb-16">
+        <ScrollReveal className="max-w-4xl mb-16">
           <div className="inline-flex items-center gap-3 px-3.5 py-1 mb-6 border border-[#CCA300]/40 bg-[#1A1817]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCA300]" />
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold">
@@ -22,10 +23,10 @@ export const ProductsPage: React.FC = () => {
           <p className="text-lg md:text-xl text-[#B8B0A2] leading-relaxed font-light">
             We hand-selected a high-performance line of barbering and skincare products for our treatments to ensure an elevated experience and maximum results. Available for purchase in our Miracle Mile retail shop.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* In-Store Retail Banner */}
-        <div className="bg-[#181615] border border-[#2A2623] p-6 mb-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <ScrollReveal delay={0.1} className="bg-[#181615] border border-[#2A2623] p-6 mb-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             <div className="w-10 h-10 border border-[#CCA300]/40 flex items-center justify-center text-[#CCA300] shrink-0">
               <ShoppingBag className="w-5 h-5" />
@@ -45,7 +46,7 @@ export const ProductsPage: React.FC = () => {
           >
             Inquire By Phone: {businessInfo.phone}
           </a>
-        </div>
+        </ScrollReveal>
 
         {/* Detailed Brand Lineup */}
         <div className="space-y-24">
@@ -55,7 +56,7 @@ export const ProductsPage: React.FC = () => {
               className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center border-b border-[#24201D] pb-24"
             >
               {/* Image side */}
-              <div className={`lg:col-span-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <ScrollReveal delay={0.05} className={`lg:col-span-6 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                 <div className="relative aspect-[16/11] overflow-hidden border border-[#2A2623] bg-[#181615] group">
                   <img
                     src={brand.image}
@@ -71,10 +72,10 @@ export const ProductsPage: React.FC = () => {
                     </span>
                   </div>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Text / Details side */}
-              <div className={`lg:col-span-6 space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+              <ScrollReveal delay={0.15} className={`lg:col-span-6 space-y-6 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                 <div>
                   <span className="font-mono text-xs text-[#CCA300] tracking-widest block mb-2">
                     BRAND 0{index + 1}
@@ -114,13 +115,13 @@ export const ProductsPage: React.FC = () => {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-              </div>
+              </ScrollReveal>
             </div>
           ))}
         </div>
 
         {/* Experience with Treatment CTA */}
-        <div className="mt-20 bg-[#181615] border border-[#2A2623] p-8 md:p-12 text-center max-w-3xl mx-auto space-y-6">
+        <ScrollReveal className="mt-20 bg-[#181615] border border-[#2A2623] p-8 md:p-12 text-center max-w-3xl mx-auto space-y-6">
           <h3 className="font-serif text-3xl text-[#FAF4E8] font-light">
             Formulations Applied In Every Ritual
           </h3>
@@ -136,7 +137,7 @@ export const ProductsPage: React.FC = () => {
               <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { useRouter, Link } from '../context/RouterContext';
 import { services, businessInfo } from '../data/siteData';
 import { Service } from '../types';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { ArrowLeft, ArrowRight, Calendar, Check, Clock, Sparkles, Scissors, MapPin } from 'lucide-react';
 
 interface ServiceDetailPageProps {
@@ -32,7 +33,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
     .slice(0, 3);
 
   return (
-    <div className="bg-[#141312] text-[#EDE7DC] pt-28 pb-24">
+    <div className="bg-[#141312] text-[#EDE7DC] pt-24 md:pt-28 pb-24">
       {/* Back Navigation Bar */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8">
         <Link
@@ -46,7 +47,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
 
       {/* Main Service Content Grid */}
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left / Top: Hero Image */}
           <div className="lg:col-span-7">
             <div className="relative aspect-[16/11] sm:aspect-[16/10] overflow-hidden border border-[#2D2825] bg-[#181615]">
@@ -131,10 +132,10 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Related Services Section */}
-        <div className="mt-28 pt-16 border-t border-[#26221F]">
+        <ScrollReveal delay={0.15} className="mt-28 pt-16 border-t border-[#26221F]">
           <div className="flex items-baseline justify-between mb-8">
             <div>
               <span className="text-[10px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold block mb-1">
@@ -179,7 +180,7 @@ export const ServiceDetailPage: React.FC<ServiceDetailPageProps> = ({ slug }) =>
               </Link>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

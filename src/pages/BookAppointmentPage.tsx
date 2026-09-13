@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { services, businessInfo, teamMembers } from '../data/siteData';
 import { SectionHeader } from '../components/SectionHeader';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { Calendar, ExternalLink, Phone, Clock, MapPin, Check, Scissors, Sparkles, ArrowRight } from 'lucide-react';
 
 export const BookAppointmentPage: React.FC = () => {
@@ -14,10 +15,10 @@ export const BookAppointmentPage: React.FC = () => {
   const activeServiceObj = services.find((s) => s.slug === selectedService) || services[0];
 
   return (
-    <div className="bg-[#141312] text-[#EDE7DC] pt-32 pb-24">
+    <div className="bg-[#141312] text-[#EDE7DC] pt-24 md:pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Page Hero */}
-        <div className="max-w-4xl mb-16">
+        <ScrollReveal className="max-w-4xl mb-16">
           <div className="inline-flex items-center gap-3 px-3.5 py-1 mb-6 border border-[#CCA300]/40 bg-[#1A1817]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCA300]" />
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold">
@@ -30,10 +31,10 @@ export const BookAppointmentPage: React.FC = () => {
           <p className="text-lg md:text-xl text-[#B8B0A2] leading-relaxed font-light">
             Schedule your haircut, traditional hot lather shave, or rejuvenating spa therapy with our master barbers and specialists.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Primary Booking Gateway Hero Box */}
-        <div className="bg-[#181615] border border-[#2D2824] p-8 md:p-12 mb-16 relative overflow-hidden">
+        <ScrollReveal delay={0.1} className="bg-[#181615] border border-[#2D2824] p-8 md:p-12 mb-16 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
               <span className="text-[10px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold block">
@@ -92,10 +93,10 @@ export const BookAppointmentPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Interactive Service Pre-Selector */}
-        <div className="mb-20">
+        <ScrollReveal delay={0.15} className="mb-20">
           <SectionHeader
             number="01"
             badge="Interactive Selector"
@@ -194,10 +195,10 @@ export const BookAppointmentPage: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Walk-in & Direct Assistance note */}
-        <div className="border border-[#2A2623] bg-[#181615] p-8 text-center max-w-3xl mx-auto space-y-3">
+        <ScrollReveal className="border border-[#2A2623] bg-[#181615] p-8 text-center max-w-3xl mx-auto space-y-3">
           <span className="text-[10px] uppercase tracking-[0.2em] text-[#CCA300] font-semibold">
             Walk-Ins & Inquiries
           </span>
@@ -207,7 +208,7 @@ export const BookAppointmentPage: React.FC = () => {
           <p className="text-xs text-[#A39C90] font-light max-w-md mx-auto leading-relaxed">
             Strolling Miracle Mile? We welcome walk-ins based on immediate barber chair availability. You may also call us directly at {businessInfo.phone} to inquire about current wait times.
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

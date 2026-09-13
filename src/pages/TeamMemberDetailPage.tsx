@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from '../context/RouterContext';
 import { teamMembers, services, businessInfo } from '../data/siteData';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { ArrowLeft, Calendar, Scissors, Phone, MapPin, Check, ArrowRight } from 'lucide-react';
 
 interface TeamMemberDetailPageProps {
@@ -29,7 +30,7 @@ export const TeamMemberDetailPage: React.FC<TeamMemberDetailPageProps> = ({ slug
   const otherMembers = teamMembers.filter((m) => m.slug !== member.slug).slice(0, 3);
 
   return (
-    <div className="bg-[#141312] text-[#EDE7DC] pt-28 pb-24">
+    <div className="bg-[#141312] text-[#EDE7DC] pt-24 md:pt-28 pb-24">
       {/* Back button */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8">
         <Link
@@ -42,7 +43,7 @@ export const TeamMemberDetailPage: React.FC<TeamMemberDetailPageProps> = ({ slug
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Member Portrait */}
           <div className="lg:col-span-5">
             <div className="relative aspect-[3/4] overflow-hidden border border-[#2A2623] bg-[#181615] shadow-2xl">
@@ -135,10 +136,10 @@ export const TeamMemberDetailPage: React.FC<TeamMemberDetailPageProps> = ({ slug
               </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Other Team Members */}
-        <div className="mt-28 pt-16 border-t border-[#26221F]">
+        <ScrollReveal delay={0.15} className="mt-28 pt-16 border-t border-[#26221F]">
           <div className="flex items-baseline justify-between mb-8">
             <div>
               <span className="text-[10px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold block mb-1">
@@ -182,7 +183,7 @@ export const TeamMemberDetailPage: React.FC<TeamMemberDetailPageProps> = ({ slug
               </Link>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

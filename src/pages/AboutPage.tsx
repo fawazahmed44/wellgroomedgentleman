@@ -2,14 +2,15 @@ import React from 'react';
 import { Link } from '../context/RouterContext';
 import { businessInfo } from '../data/siteData';
 import { SectionHeader } from '../components/SectionHeader';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { MapPin, Calendar, Clock, Scissors, Award, Users, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export const AboutPage: React.FC = () => {
   return (
-    <div className="bg-[#141312] text-[#EDE7DC] pt-32 pb-24">
+    <div className="bg-[#141312] text-[#EDE7DC] pt-24 md:pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Page Hero */}
-        <div className="max-w-4xl mb-20">
+        <ScrollReveal className="max-w-4xl mb-20">
           <div className="inline-flex items-center gap-3 px-3.5 py-1 mb-6 border border-[#CCA300]/40 bg-[#1A1817]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCA300]" />
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold">
@@ -23,11 +24,11 @@ export const AboutPage: React.FC = () => {
           <p className="text-lg md:text-xl text-[#B8B0A2] leading-relaxed font-light">
             Located on Miracle Mile in Coral Gables since 2014, The Well Groomed Gentleman was founded to honor classic barber craftsmanship while delivering modern spa therapies for the discerning man.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Narrative Section with Real Imagery */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-28">
-          <div className="lg:col-span-6 space-y-6">
+          <ScrollReveal className="lg:col-span-6 space-y-6">
             <SectionHeader
               number="01"
               badge="The Sanctuary"
@@ -60,9 +61,9 @@ export const AboutPage: React.FC = () => {
                 <span className="text-[11px] uppercase tracking-wider text-[#948D81]">Days a Week</span>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div className="lg:col-span-6">
+          <ScrollReveal delay={0.2} className="lg:col-span-6">
             <div className="relative">
               <div className="aspect-[4/5] overflow-hidden border border-[#2B2724] bg-[#181615]">
                 <img
@@ -81,7 +82,7 @@ export const AboutPage: React.FC = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
 
         {/* Pillars of Experience */}
@@ -95,7 +96,7 @@ export const AboutPage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-[#181615] border border-[#2A2623] p-8 space-y-4">
+            <ScrollReveal delay={0.05} className="bg-[#181615] border border-[#2A2623] p-8 space-y-4 h-full">
               <div className="w-10 h-10 border border-[#CCA300]/40 flex items-center justify-center text-[#CCA300]">
                 <Scissors className="w-5 h-5" />
               </div>
@@ -105,9 +106,9 @@ export const AboutPage: React.FC = () => {
               <p className="text-sm text-[#A39C90] leading-relaxed font-light">
                 Preserving timeless barber techniques dating back centuries. Warm lather, hot towel compresses, and straight-razor precision that modern automated tools cannot duplicate.
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="bg-[#181615] border border-[#2A2623] p-8 space-y-4">
+            <ScrollReveal delay={0.15} className="bg-[#181615] border border-[#2A2623] p-8 space-y-4 h-full">
               <div className="w-10 h-10 border border-[#CCA300]/40 flex items-center justify-center text-[#CCA300]">
                 <Award className="w-5 h-5" />
               </div>
@@ -117,9 +118,9 @@ export const AboutPage: React.FC = () => {
               <p className="text-sm text-[#A39C90] leading-relaxed font-light">
                 Comprehensive spa care formulated specifically for men, including in-chair express facials with Dr. Dennis Gross skincare, manicures, pedicures, and PHYTO scalp treatments.
               </p>
-            </div>
+            </ScrollReveal>
 
-            <div className="bg-[#181615] border border-[#2A2623] p-8 space-y-4">
+            <ScrollReveal delay={0.25} className="bg-[#181615] border border-[#2A2623] p-8 space-y-4 h-full">
               <div className="w-10 h-10 border border-[#CCA300]/40 flex items-center justify-center text-[#CCA300]">
                 <Users className="w-5 h-5" />
               </div>
@@ -129,12 +130,12 @@ export const AboutPage: React.FC = () => {
               <p className="text-sm text-[#A39C90] leading-relaxed font-light">
                 More than an appointment—a trusted gathering place. From relaxing in our courtyard patio to conversation over refreshments, we foster an authentic brotherhood in Coral Gables.
               </p>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
 
         {/* Real Location Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#171514] border border-[#2B2724] p-8 md:p-12">
+        <ScrollReveal className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#171514] border border-[#2B2724] p-8 md:p-12">
           <div className="lg:col-span-7 space-y-6">
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold block">
               Destination
@@ -182,7 +183,7 @@ export const AboutPage: React.FC = () => {
               />
             </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </div>
   );

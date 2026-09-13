@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { galleryItems } from '../data/siteData';
 import { GalleryItem } from '../types';
 import { SectionHeader } from '../components/SectionHeader';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { X, ChevronLeft, ChevronRight, Maximize2, Sparkles, Camera } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -49,10 +50,10 @@ export const GalleryPage: React.FC = () => {
   }, [selectedPhotoIndex, filteredItems.length]);
 
   return (
-    <div className="bg-[#141312] text-[#EDE7DC] pt-32 pb-24">
+    <div className="bg-[#141312] text-[#EDE7DC] pt-24 md:pt-28 pb-24">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         {/* Page Hero */}
-        <div className="max-w-4xl mb-16">
+        <ScrollReveal className="max-w-4xl mb-16">
           <div className="inline-flex items-center gap-3 px-3.5 py-1 mb-6 border border-[#CCA300]/40 bg-[#1A1817]">
             <span className="w-1.5 h-1.5 rounded-full bg-[#CCA300]" />
             <span className="text-[11px] uppercase tracking-[0.25em] text-[#CCA300] font-semibold">
@@ -65,7 +66,7 @@ export const GalleryPage: React.FC = () => {
           <p className="text-lg md:text-xl text-[#B8B0A2] leading-relaxed font-light">
             An editorial look inside The Well Groomed Gentleman on Miracle Mile. Explore our handcrafted barber chairs, relaxing courtyard patio, private spa suites, and curated grooming apothecary.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Category Filter Tabs */}
         <div className="flex flex-wrap items-center gap-2.5 mb-14 border-b border-[#26221F] pb-6">
@@ -90,39 +91,40 @@ export const GalleryPage: React.FC = () => {
         {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
-            <div
-              key={item.id}
-              onClick={() => setSelectedPhotoIndex(index)}
-              className="group relative cursor-pointer overflow-hidden border border-[#2A2623] bg-[#181615] hover:border-[#CCA300]/60 transition-all duration-300"
-            >
-              <div className="aspect-[16/11] overflow-hidden bg-[#201D1B]">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
+            <ScrollReveal key={item.id} delay={index * 0.05}>
+              <div
+                onClick={() => setSelectedPhotoIndex(index)}
+                className="group relative cursor-pointer overflow-hidden border border-[#2A2623] bg-[#181615] hover:border-[#CCA300]/60 transition-all duration-300 h-full"
+              >
+                <div className="aspect-[16/11] overflow-hidden bg-[#201D1B]">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
 
-              {/* Overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#141312]/90 via-[#141312]/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#141312]/90 via-[#141312]/30 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
 
-              {/* Caption & Metadata */}
-              <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col justify-end">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#CCA300] font-semibold mb-1">
-                  {item.category}
-                </span>
-                <div className="flex items-center justify-between">
-                  <h3 className="font-serif text-xl text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
-                    {item.title}
-                  </h3>
-                  <div className="w-8 h-8 rounded-none border border-[#3E3832] group-hover:border-[#CCA300] flex items-center justify-center text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
-                    <Maximize2 className="w-3.5 h-3.5" />
+                {/* Caption & Metadata */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 flex flex-col justify-end">
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-[#CCA300] font-semibold mb-1">
+                    {item.category}
+                  </span>
+                  <div className="flex items-center justify-between">
+                    <h3 className="font-serif text-xl text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
+                      {item.title}
+                    </h3>
+                    <div className="w-8 h-8 rounded-none border border-[#3E3832] group-hover:border-[#CCA300] flex items-center justify-center text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
+                      <Maximize2 className="w-3.5 h-3.5" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from '../context/RouterContext';
 import { services, teamMembers, discounts, productBrands, businessInfo } from '../data/siteData';
 import { SectionHeader } from '../components/SectionHeader';
+import { ScrollReveal } from '../components/ScrollReveal';
 import { ArrowRight, Calendar, Sparkles, MapPin, Clock, Shield, Scissors, Sparkle } from 'lucide-react';
 import { motion } from 'motion/react';
 
@@ -132,7 +133,7 @@ export const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left: Editorial narrative */}
-            <div className="lg:col-span-6 space-y-6">
+            <ScrollReveal className="lg:col-span-6 space-y-6">
               <SectionHeader
                 number="01"
                 badge="Heritage & Community"
@@ -174,10 +175,10 @@ export const HomePage: React.FC = () => {
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
 
             {/* Right: Real Image Composition with Asymmetric Double Frame */}
-            <div className="lg:col-span-6">
+            <ScrollReveal delay={0.2} className="lg:col-span-6">
               <div className="relative group p-2">
                 {/* Decorative border offset */}
                 <div className="absolute inset-0 border border-[#CCA300]/25 -translate-x-2 -translate-y-2 pointer-events-none transition-transform group-hover:translate-x-0 group-hover:translate-y-0 duration-500" />
@@ -212,7 +213,7 @@ export const HomePage: React.FC = () => {
                   </span>
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -251,43 +252,44 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {cutsAndShaves.map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  className="group relative bg-[#171514] border border-[#292522] hover:border-[#CCA300]/60 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-black/60"
-                >
-                  <div>
-                    {/* Image Header */}
-                    <div className="aspect-[16/10] overflow-hidden mb-5 bg-[#1F1C1A]">
-                      <img
-                        src={service.image}
-                        alt={service.name}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                      />
+              {cutsAndShaves.map((service, idx) => (
+                <ScrollReveal key={service.slug} delay={idx * 0.08}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group relative bg-[#171514] border border-[#292522] hover:border-[#CCA300]/60 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-black/60 h-full"
+                  >
+                    <div>
+                      {/* Image Header */}
+                      <div className="aspect-[16/10] overflow-hidden mb-5 bg-[#1F1C1A]">
+                        <img
+                          src={service.image}
+                          alt={service.name}
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+
+                      <div className="flex items-baseline justify-between gap-2 mb-2">
+                        <h3 className="font-serif text-xl text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
+                          {service.name}
+                        </h3>
+                        <span className="font-mono text-base text-[#CCA300] font-semibold shrink-0">
+                          {service.price}
+                        </span>
+                      </div>
+
+                      <p className="text-xs text-[#9E978B] leading-relaxed line-clamp-2 mb-4 font-light">
+                        {service.shortDescription}
+                      </p>
                     </div>
 
-                    <div className="flex items-baseline justify-between gap-2 mb-2">
-                      <h3 className="font-serif text-xl text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
-                        {service.name}
-                      </h3>
-                      <span className="font-mono text-base text-[#CCA300] font-semibold shrink-0">
-                        {service.price}
-                      </span>
+                    <div className="pt-4 border-t border-[#24201D] flex items-center justify-between text-xs text-[#CCA300] uppercase tracking-[0.16em] font-medium">
+                      <span>View Service</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
-
-                    <p className="text-xs text-[#9E978B] leading-relaxed line-clamp-2 mb-4 font-light">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#24201D] flex items-center justify-between text-xs text-[#CCA300] uppercase tracking-[0.16em] font-medium">
-                    <span>View Service</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
+                  </Link>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -302,42 +304,43 @@ export const HomePage: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {groomingServices.map((service) => (
-                <Link
-                  key={service.slug}
-                  href={`/services/${service.slug}`}
-                  className="group relative bg-[#171514] border border-[#292522] hover:border-[#CCA300]/60 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-black/60"
-                >
-                  <div>
-                    <div className="aspect-[16/10] overflow-hidden mb-5 bg-[#1F1C1A]">
-                      <img
-                        src={service.image}
-                        alt={service.name}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                      />
+              {groomingServices.map((service, idx) => (
+                <ScrollReveal key={service.slug} delay={idx * 0.08}>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="group relative bg-[#171514] border border-[#292522] hover:border-[#CCA300]/60 p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-black/60 h-full"
+                  >
+                    <div>
+                      <div className="aspect-[16/10] overflow-hidden mb-5 bg-[#1F1C1A]">
+                        <img
+                          src={service.image}
+                          alt={service.name}
+                          className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+
+                      <div className="flex items-baseline justify-between gap-2 mb-2">
+                        <h3 className="font-serif text-xl text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
+                          {service.name}
+                        </h3>
+                        <span className="font-mono text-sm text-[#CCA300] font-semibold shrink-0 text-right">
+                          {service.price}
+                        </span>
+                      </div>
+
+                      <p className="text-xs text-[#9E978B] leading-relaxed line-clamp-2 mb-4 font-light">
+                        {service.shortDescription}
+                      </p>
                     </div>
 
-                    <div className="flex items-baseline justify-between gap-2 mb-2">
-                      <h3 className="font-serif text-xl text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
-                        {service.name}
-                      </h3>
-                      <span className="font-mono text-sm text-[#CCA300] font-semibold shrink-0 text-right">
-                        {service.price}
-                      </span>
+                    <div className="pt-4 border-t border-[#24201D] flex items-center justify-between text-xs text-[#CCA300] uppercase tracking-[0.16em] font-medium">
+                      <span>View Service</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </div>
-
-                    <p className="text-xs text-[#9E978B] leading-relaxed line-clamp-2 mb-4 font-light">
-                      {service.shortDescription}
-                    </p>
-                  </div>
-
-                  <div className="pt-4 border-t border-[#24201D] flex items-center justify-between text-xs text-[#CCA300] uppercase tracking-[0.16em] font-medium">
-                    <span>View Service</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </Link>
+                  </Link>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -369,33 +372,34 @@ export const HomePage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-            {teamMembers.slice(0, 4).map((member) => (
-              <Link
-                key={member.slug}
-                href={`/team/${member.slug}`}
-                className="group relative bg-[#181615] border border-[#2B2724] hover:border-[#CCA300]/70 p-4 transition-all duration-300 block"
-              >
-                <div className="aspect-[3/4] overflow-hidden bg-[#201D1B] mb-4 relative">
-                  <img
-                    src={member.image}
-                    alt={`${member.name} - ${member.role}`}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#141312] via-transparent to-transparent opacity-65" />
-                </div>
-                <h3 className="font-serif text-lg text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
-                  {member.name}
-                </h3>
-                <p className="text-[11px] uppercase tracking-[0.15em] text-[#CCA300] font-medium mt-0.5">
-                  {member.role}
-                </p>
-                <div className="mt-3 pt-2 border-t border-[#26221F] flex items-center justify-between text-[11px] text-[#948D81]">
-                  <span>Meet {member.name}</span>
-                  <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
-                </div>
-              </Link>
+            {teamMembers.slice(0, 4).map((member, idx) => (
+              <ScrollReveal key={member.slug} delay={idx * 0.08}>
+                <Link
+                  href={`/team/${member.slug}`}
+                  className="group relative bg-[#181615] border border-[#2B2724] hover:border-[#CCA300]/70 p-4 transition-all duration-300 block h-full"
+                >
+                  <div className="aspect-[3/4] overflow-hidden bg-[#201D1B] mb-4 relative">
+                    <img
+                      src={member.image}
+                      alt={`${member.name} - ${member.role}`}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      referrerPolicy="no-referrer"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#141312] via-transparent to-transparent opacity-65" />
+                  </div>
+                  <h3 className="font-serif text-lg text-[#FAF4E8] group-hover:text-[#CCA300] transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-[11px] uppercase tracking-[0.15em] text-[#CCA300] font-medium mt-0.5">
+                    {member.role}
+                  </p>
+                  <div className="mt-3 pt-2 border-t border-[#26221F] flex items-center justify-between text-[11px] text-[#948D81]">
+                    <span>Meet {member.name}</span>
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </Link>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -416,42 +420,43 @@ export const HomePage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {productBrands.map((brand) => (
-              <div
-                key={brand.id}
-                className="bg-[#171514] border border-[#2A2623] p-6 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="aspect-[16/11] overflow-hidden mb-6 bg-[#201D1B]">
-                    <img
-                      src={brand.image}
-                      alt={brand.name}
-                      className="w-full h-full object-cover object-center"
-                      loading="lazy"
-                      referrerPolicy="no-referrer"
-                    />
+            {productBrands.map((brand, idx) => (
+              <ScrollReveal key={brand.id} delay={idx * 0.1}>
+                <div
+                  className="bg-[#171514] border border-[#2A2623] p-6 flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className="aspect-[16/11] overflow-hidden mb-6 bg-[#201D1B]">
+                      <img
+                        src={brand.image}
+                        alt={brand.name}
+                        className="w-full h-full object-cover object-center"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                      />
+                    </div>
+                    <span className="text-[11px] uppercase tracking-[0.2em] text-[#CCA300] font-semibold block mb-1">
+                      {brand.category}
+                    </span>
+                    <h3 className="font-serif text-2xl text-[#FAF4E8] mb-2">
+                      {brand.name}
+                    </h3>
+                    <p className="text-xs text-[#A39C90] leading-relaxed font-light mb-6">
+                      {brand.description}
+                    </p>
                   </div>
-                  <span className="text-[11px] uppercase tracking-[0.2em] text-[#CCA300] font-semibold block mb-1">
-                    {brand.category}
-                  </span>
-                  <h3 className="font-serif text-2xl text-[#FAF4E8] mb-2">
-                    {brand.name}
-                  </h3>
-                  <p className="text-xs text-[#A39C90] leading-relaxed font-light mb-6">
-                    {brand.description}
-                  </p>
-                </div>
 
-                <div className="pt-4 border-t border-[#26221F]">
-                  <Link
-                    href="/products"
-                    className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-[#FAF4E8] hover:text-[#CCA300] transition-colors font-medium"
-                  >
-                    <span>View Catalog Details</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                  <div className="pt-4 border-t border-[#26221F]">
+                    <Link
+                      href="/products"
+                      className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-[#FAF4E8] hover:text-[#CCA300] transition-colors font-medium"
+                    >
+                      <span>View Catalog Details</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -464,7 +469,7 @@ export const HomePage: React.FC = () => {
       <section className="py-24 md:py-32 border-b border-[#24201D] bg-[#141312] relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 space-y-6">
+            <ScrollReveal className="lg:col-span-5 space-y-6">
               <SectionHeader
                 number="05"
                 badge="The Environment"
@@ -489,9 +494,9 @@ export const HomePage: React.FC = () => {
                   <span>Visit Location</span>
                 </Link>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <div className="lg:col-span-7 grid grid-cols-2 gap-4">
+            <ScrollReveal delay={0.15} className="lg:col-span-7 grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="aspect-[4/5] overflow-hidden border border-[#2A2623] group">
                   <img
@@ -532,7 +537,7 @@ export const HomePage: React.FC = () => {
                   />
                 </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -552,26 +557,27 @@ export const HomePage: React.FC = () => {
           />
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {discounts.map((item) => (
-              <div
-                key={item.id}
-                className="bg-[#171514] border border-[#2A2623] p-6 flex flex-col justify-between"
-              >
-                <div>
-                  <div className="inline-block px-3 py-1 bg-[#CCA300]/15 border border-[#CCA300]/40 text-[#CCA300] text-xs font-mono font-semibold tracking-wider mb-4">
-                    {item.discount}
+            {discounts.map((item, idx) => (
+              <ScrollReveal key={item.id} delay={idx * 0.08}>
+                <div
+                  className="bg-[#171514] border border-[#2A2623] p-6 flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <div className="inline-block px-3 py-1 bg-[#CCA300]/15 border border-[#CCA300]/40 text-[#CCA300] text-xs font-mono font-semibold tracking-wider mb-4">
+                      {item.discount}
+                    </div>
+                    <h3 className="font-serif text-xl text-[#FAF4E8] mb-2 leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs text-[#9E978B] leading-relaxed font-light mb-4">
+                      {item.description}
+                    </p>
                   </div>
-                  <h3 className="font-serif text-xl text-[#FAF4E8] mb-2 leading-snug">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-[#9E978B] leading-relaxed font-light mb-4">
-                    {item.description}
+                  <p className="text-[11px] text-[#CCA300] border-t border-[#24201D] pt-3 font-medium">
+                    {item.requirement}
                   </p>
                 </div>
-                <p className="text-[11px] text-[#CCA300] border-t border-[#24201D] pt-3 font-medium">
-                  {item.requirement}
-                </p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
 
@@ -602,7 +608,7 @@ export const HomePage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-[#141312] via-[#141312]/85 to-[#141312]" />
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6">
+        <ScrollReveal className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-6">
           <span className="text-[11px] uppercase tracking-[0.3em] text-[#CCA300] font-semibold">
             Reserve Your Experience
           </span>
@@ -628,7 +634,7 @@ export const HomePage: React.FC = () => {
               <span>Purchase Gift Card</span>
             </Link>
           </div>
-        </div>
+        </ScrollReveal>
       </section>
     </div>
   );

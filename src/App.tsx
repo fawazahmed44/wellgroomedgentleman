@@ -103,9 +103,9 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#121315] text-[#E8E6E1] selection:bg-[#C5A880] selection:text-[#121315]">
+    <div className="min-h-screen flex flex-col bg-[#121315] text-[#E8E6E1] selection:bg-[#C5A880] selection:text-[#121315] w-full max-w-full overflow-x-hidden">
       <Navigation />
-      <main className="flex-grow">
+      <main className="flex-grow w-full max-w-full overflow-x-hidden">
         {renderRoute()}
       </main>
       <Footer />

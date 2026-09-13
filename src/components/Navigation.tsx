@@ -225,25 +225,25 @@ export const Navigation: React.FC = () => {
       {/* Modern, Categorized Luxury Navigation Header */}
       <header
         id="main-navigation"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] w-full max-w-[100vw] ${
           isScrolled
             ? 'h-16 sm:h-18 bg-[#141312]/92 backdrop-blur-xl border-b border-[#CCA300]/25 shadow-2xl shadow-black/70'
             : 'h-18 sm:h-20 bg-[#141312]/85 backdrop-blur-md border-b border-white/[0.05]'
         }`}
       >
-        <div className="max-w-7xl mx-auto h-full px-3 sm:px-6 lg:px-10 flex items-center justify-between gap-2 sm:gap-4">
+        <div className="w-full max-w-7xl mx-auto h-full px-3 sm:px-6 lg:px-10 flex items-center justify-between gap-1.5 sm:gap-4">
           
           {/* Brand Mark with Generous Negative Space & Responsive Scaling */}
-          <div className="flex items-center min-w-0 pr-1 sm:pr-4 lg:mr-8 xl:mr-12">
+          <div className="flex items-center min-w-0 flex-1 pr-1.5 sm:pr-4 lg:flex-initial lg:mr-8 xl:mr-12">
             <Link
               href="/"
-              className="group flex flex-col focus:outline-none min-w-0"
+              className="group flex flex-col focus:outline-none min-w-0 max-w-full"
               aria-label="The Well Groomed Gentleman - Home"
             >
-              <span className="font-serif text-[12.5px] xs:text-sm sm:text-base md:text-xl tracking-[0.05em] xs:tracking-[0.1em] sm:tracking-[0.14em] text-[#FAF4E8] font-normal uppercase group-hover:text-[#CCA300] transition-colors leading-tight truncate">
+              <span className="font-serif text-[12px] sm:text-base md:text-xl tracking-[0.04em] sm:tracking-[0.14em] text-[#FAF4E8] font-normal uppercase group-hover:text-[#CCA300] transition-colors leading-tight truncate">
                 The Well Groomed Gentleman
               </span>
-              <span className="text-[7px] xs:text-[8px] sm:text-[9px] uppercase tracking-[0.18em] sm:tracking-[0.3em] text-[#CCA300] font-medium mt-0.5 leading-none truncate">
+              <span className="text-[7px] sm:text-[9px] uppercase tracking-[0.16em] sm:tracking-[0.3em] text-[#CCA300] font-medium mt-0.5 leading-none truncate">
                 Coral Gables • Est. 2014
               </span>
             </Link>
@@ -421,37 +421,27 @@ export const Navigation: React.FC = () => {
           </div>
 
           {/* MOBILE & TABLET ONLY: Modern 3-Dots Kebab Menu Trigger & Direct Action */}
-          <div className="flex items-center gap-1.5 sm:gap-2 lg:hidden shrink-0">
-            {/* Quick Instant Call Button for Mobile Visitors (hidden on ultra-narrow <360px screens to guarantee 3-dots visibility) */}
-            <a
-              href={`tel:${businessInfo.phoneRaw}`}
-              className="hidden xs:flex w-8 h-8 sm:w-9 sm:h-9 items-center justify-center border border-[#2D2824] bg-[#181615] text-[#CCA300] active:scale-95 transition-all"
-              title={`Call ${businessInfo.phone}`}
-              aria-label="Call Concierge Desk"
-            >
-              <Phone className="w-3.5 h-3.5" />
-            </a>
-
+          <div className="flex items-center gap-2 sm:gap-2.5 lg:hidden shrink-0">
             {/* Mobile Direct Book Pill */}
             <Link
               href="/book-appointment"
-              className="px-2.5 sm:px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-[#141312] bg-[#CCA300] active:scale-95 transition-all whitespace-nowrap shrink-0"
+              className="px-2.5 sm:px-3 py-1.5 text-[9.5px] sm:text-[10.5px] font-semibold uppercase tracking-[0.12em] sm:tracking-[0.14em] text-[#141312] bg-[#CCA300] hover:bg-[#DFC15C] active:scale-95 transition-all whitespace-nowrap shrink-0"
             >
               Book
             </Link>
 
-            {/* Modern 3-Dots Kebab Menu Trigger (Borderless, delicate small dots, no square box) */}
+            {/* Modern 3-Dots Kebab Menu Trigger (Borderless, small delicate dots, no square box, no text) */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center text-[#CCA300] hover:text-[#FAF4E8] active:scale-90 transition-transform shrink-0 focus:outline-none"
+              className="w-8 h-8 flex items-center justify-center text-[#CCA300] hover:text-[#FAF4E8] active:scale-90 transition-transform shrink-0 focus:outline-none"
               aria-label={mobileMenuOpen ? 'Close navigation options' : 'Open navigation options'}
               title="Navigation Options"
             >
               {mobileMenuOpen ? (
                 <X className="w-4 h-4 text-[#FAF4E8]" />
               ) : (
-                <div className="flex flex-col items-center justify-center gap-[2.5px]" aria-hidden="true">
+                <div className="flex flex-col items-center justify-center gap-[2.5px] py-1" aria-hidden="true">
                   <span className="w-1 h-1 rounded-full bg-[#CCA300]" />
                   <span className="w-1 h-1 rounded-full bg-[#CCA300]" />
                   <span className="w-1 h-1 rounded-full bg-[#CCA300]" />
@@ -473,7 +463,7 @@ export const Navigation: React.FC = () => {
       {/* MOBILE ONLY: Modern Kebab Menu Slide-over Drawer with Options Inside Options */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <div className="fixed inset-0 z-50 lg:hidden">
+          <div className="fixed inset-0 z-50 lg:hidden overflow-hidden">
             {/* Backdrop Blur Overlay */}
             <motion.div
               initial={{ opacity: 0 }}

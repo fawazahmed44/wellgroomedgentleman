@@ -1,0 +1,6 @@
+{
+  "name": "The Well Groomed Gentleman",
+  "description": "Luxury men's grooming destination and traditional barbering on Miracle Mile in Coral Gables.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
